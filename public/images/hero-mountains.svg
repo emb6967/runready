@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Snowy mountain range with a skier carving down a groomed run">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06122b"/>
+      <stop offset="0.45" stop-color="#14306b"/>
+      <stop offset="0.8" stop-color="#5a8fd0"/>
+      <stop offset="1" stop-color="#bfe3f7"/>
+    </linearGradient>
+    <linearGradient id="farRange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fa9d8"/>
+      <stop offset="1" stop-color="#3d6aa8"/>
+    </linearGradient>
+    <linearGradient id="midRange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c4f8a"/>
+      <stop offset="1" stop-color="#132a57"/>
+    </linearGradient>
+    <linearGradient id="nearRange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16305f"/>
+      <stop offset="1" stop-color="#0a1a3a"/>
+    </linearGradient>
+    <linearGradient id="snowSlope" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.6" stop-color="#e3f3fc"/>
+      <stop offset="1" stop-color="#b9dcf2"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.35" stop-color="#d8efff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#d8efff" stop-opacity="0"/>
+    </radialGradient>
+    <g id="pine">
+      <polygon points="0,-60 18,-20 10,-20 26,10 -26,10 -10,-20 -18,-20" fill="#0b2148"/>
+      <polygon points="0,-60 6,-47 -6,-47" fill="#eaf6ff"/>
+      <rect x="-3" y="10" width="6" height="10" fill="#081631"/>
+    </g>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+
+  <!-- stars -->
+  <g fill="#ffffff">
+    <circle cx="120" cy="80" r="1.6" opacity="0.8"/><circle cx="260" cy="150" r="1.1" opacity="0.6"/>
+    <circle cx="410" cy="60" r="1.4" opacity="0.7"/><circle cx="560" cy="130" r="1" opacity="0.5"/>
+    <circle cx="700" cy="40" r="1.5" opacity="0.8"/><circle cx="860" cy="110" r="1.2" opacity="0.6"/>
+    <circle cx="980" cy="70" r="1" opacity="0.5"/><circle cx="1500" cy="60" r="1.6" opacity="0.8"/>
+    <circle cx="1420" cy="170" r="1.1" opacity="0.6"/><circle cx="1560" cy="230" r="1" opacity="0.5"/>
+    <circle cx="60" cy="220" r="1.2" opacity="0.6"/><circle cx="340" cy="250" r="0.9" opacity="0.4"/>
+  </g>
+
+  <!-- moon -->
+  <circle cx="1220" cy="170" r="140" fill="url(#moonGlow)"/>
+  <circle cx="1220" cy="170" r="38" fill="#f4fbff"/>
+
+  <!-- far range -->
+  <path d="M0 520 L140 400 L230 450 L380 300 L470 370 L590 260 L720 380 L820 330 L960 220 L1090 340 L1200 290 L1330 380 L1450 300 L1600 390 L1600 900 L0 900 Z" fill="url(#farRange)" opacity="0.85"/>
+   <path d="M380 300 L332 348 L351 332 L370 341 L390 319 L409 322 Z M590 260 L552 295 L572 286 L592 303 L612 288 L632 298 Z M960 220 L915 255 L937 246 L958 263 L980 248 L1002 258 Z M1450 300 L1412 326 L1433 316 L1455 333 L1476 318 L1498 329 Z" fill="#eef8ff" opacity="0.9"/>
+
+  <!-- mid range -->
+  <path d="M0 600 L170 470 L260 520 L420 400 L560 520 L700 440 L860 560 L1010 420 L1140 500 L1300 380 L1460 500 L1600 450 L1600 900 L0 900 Z" fill="url(#midRange)"/>
+   <path d="M420 400 L369 438 L393 428 L417 444 L441 428 L465 438 Z M1010 420 L962 465 L984 450 L1007 461 L1029 440 L1052 446 Z M1300 380 L1249 418 L1274 408 L1300 424 L1326 408 L1351 418 Z M170 470 L116 512 L136 495 L157 505 L178 482 L199 486 Z" fill="#dff1fd" opacity="0.92"/>
+
+  <!-- near ridge -->
+  <path d="M0 700 L220 600 L380 660 L560 580 L760 700 L1600 640 L1600 900 L0 900 Z" fill="url(#nearRange)"/>
+
+  <!-- groomed snow slope -->
+  <path d="M520 900 C700 760 900 690 1150 640 C1300 610 1450 600 1600 600 L1600 900 Z" fill="url(#snowSlope)"/>
+  <path d="M0 900 L0 800 C160 780 320 790 520 900 Z" fill="#dcefff" opacity="0.9"/>
+
+  <!-- corduroy lines -->
+  <g stroke="#c4e2f5" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M700 900 C860 790 1040 720 1600 660"/>
+    <path d="M860 900 C990 810 1150 750 1600 710"/>
+    <path d="M1020 900 C1130 830 1280 790 1600 760"/>
+  </g>
+
+  <!-- ski track -->
+  <path d="M1500 640 C1400 660 1360 690 1300 700 C1220 712 1200 740 1130 760 C1060 780 1040 790 990 800" stroke="#9cc8e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- skier -->
+  <g transform="translate(985 770) rotate(-14)">
+    <line x1="-48" y1="34" x2="40" y2="34" stroke="#0a1a3a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="-40" y1="42" x2="48" y2="42" stroke="#0a1a3a" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-6 32 L4 8 L-10 -6 L4 -22" stroke="#0a1a3a" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10 38 L12 12 L4 8" stroke="#0a1a3a" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4 -22 L-14 -48" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="-20" cy="-62" r="10" fill="#0a1a3a"/>
+    <path d="M-8 -40 L22 -22 L36 6" stroke="#0a1a3a" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <line x1="36" y1="6" x2="50" y2="40" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-16 -36 L-36 -14" stroke="#0a1a3a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="-36" y1="-14" x2="-30" y2="30" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- snow spray -->
+  <g fill="#ffffff" opacity="0.85">
+    <circle cx="1040" cy="790" r="6"/><circle cx="1058" cy="778" r="4"/><circle cx="1072" cy="792" r="3"/>
+    <circle cx="1050" cy="804" r="3.5"/><circle cx="1086" cy="780" r="2.5"/>
+  </g>
+
+  <!-- pines -->
+  <use href="#pine" transform="translate(120 820) scale(1.3)"/>
+  <use href="#pine" transform="translate(190 840) scale(1.6)"/>
+  <use href="#pine" transform="translate(270 830) scale(1.1)"/>
+  <use href="#pine" transform="translate(360 870) scale(1.5)"/>
+  <use href="#pine" transform="translate(60 870) scale(1.8)"/>
+  <use href="#pine" transform="translate(1540 600) scale(0.8)"/>
+  <use href="#pine" transform="translate(1575 615) scale(1)"/>
+</svg>
