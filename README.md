@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RunReady
 
-## Getting Started
+AI-powered skiing progression platform.
+Created by **Emerson Brown Saville** (Penn State class project).
 
-First, run the development server:
+Built with Next.js 16 (App Router), Tailwind CSS, and Neon Auth, with accounts stored in Neon Postgres. Payments and AI features are not built yet.
+
+## Environment variables
+
+Set these in Vercel → Project → Settings → Environment Variables. Never commit them.
+
+| Variable | Where it comes from |
+|---|---|
+| `NEON_AUTH_BASE_URL` | Added by the Vercel–Neon integration when Neon Auth is enabled |
+| `NEON_AUTH_COOKIE_SECRET` | A random secret of 32+ characters that you generate (signs session cookies) |
+| `DATABASE_URL` | Added by the Vercel–Neon integration (used by `npm run users`) |
+
+Pull them into a git-ignored `.env.local` file for local development:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx vercel link
+npx vercel env pull .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open http://localhost:3000.
 
-## Learn More
+## Auth routes
 
-To learn more about Next.js, take a look at the following resources:
+- `/auth/sign-up` and `/auth/sign-in`: email + password forms. Neon Auth hashes passwords; the app never stores them.
+- `/dashboard`: protected page. Signed-out visitors are redirected to sign-in.
+- `/api/auth/*`: Neon Auth proxy handler.
+- `npm run users`: lists accounts in `neon_auth.user` (no password data).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Checks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```

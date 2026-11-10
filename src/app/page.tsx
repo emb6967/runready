@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const steps = [
   {
@@ -96,12 +97,20 @@ export default function Home() {
             <a href="#features" className="hover:text-white">Features</a>
             <a href="#coming-soon" className="hover:text-white">Coming Soon</a>
           </div>
-          <a
-            href="#coming-soon"
-            className="rounded-full border border-ice-200/40 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
-          >
-            What&apos;s next
-          </a>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/auth/sign-in"
+              className="rounded-full px-4 py-2 text-sm font-medium text-ice-100 hover:text-white"
+            >
+              Log in
+            </Link>
+            <Link
+              href="/auth/sign-up"
+              className="rounded-full bg-ice-400 px-4 py-2 text-sm font-semibold text-navy-950 hover:bg-ice-300"
+            >
+              Sign up
+            </Link>
+          </div>
         </nav>
       </header>
 
@@ -129,12 +138,12 @@ export default function Home() {
               personalized plan for becoming a stronger, more confident skier.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#how-it-works"
+              <Link
+                href="/auth/sign-up"
                 className="rounded-full bg-ice-400 px-6 py-3 text-center font-semibold text-navy-950 shadow-lg shadow-ice-400/20 hover:bg-ice-300"
               >
-                See how it works
-              </a>
+                Create your free account
+              </Link>
               <a
                 href="#features"
                 className="rounded-full border border-white/30 px-6 py-3 text-center font-semibold text-white hover:bg-white/10"
