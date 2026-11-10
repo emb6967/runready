@@ -1,5 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { formatPrice } from "@/lib/stripe";
+
+const audience = [
+  "You ski 5 to 20 days a season and feel stuck on blue runs",
+  "You want to try blacks, moguls, or trees but don't know where to start",
+  "Private lessons ($150+ a day) don't fit your budget",
+];
 
 const steps = [
   {
@@ -52,12 +59,12 @@ const features = [
 
 const comingSoon = [
   {
-    title: "AI progression plans",
-    body: "Plans generated from your profile and updated as you improve.",
+    title: "Ski-day check-ins",
+    body: "Tell RunReady how each day went and your plan adjusts automatically.",
   },
   {
-    title: "Skier accounts",
-    body: "Save your profile, track your ski days, and pick up your plan on any device.",
+    title: "Resort trail maps",
+    body: "Plans matched to the actual trails at your home mountain.",
   },
   {
     title: "Progress tracking",
@@ -95,7 +102,7 @@ export default function Home() {
             <a href="#about" className="hover:text-white">About</a>
             <a href="#how-it-works" className="hover:text-white">How It Works</a>
             <a href="#features" className="hover:text-white">Features</a>
-            <a href="#coming-soon" className="hover:text-white">Coming Soon</a>
+            <a href="#pricing" className="hover:text-white">Pricing</a>
           </div>
           <div className="flex items-center gap-2">
             <Link
@@ -134,8 +141,9 @@ export default function Home() {
               Ski your next run <span className="text-ice-300">with confidence.</span>
             </h1>
             <p className="mt-6 text-lg text-ice-100 sm:text-xl">
-              RunReady turns your experience, comfort terrain, and goals into a
-              personalized plan for becoming a stronger, more confident skier.
+              Your AI ski coach for breaking out of the blue-run rut. Tell
+              RunReady how you ski and what you want to tackle, and get a
+              day-by-day plan with the runs, drills, and focus for every ski day.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -145,10 +153,10 @@ export default function Home() {
                 Create your free account
               </Link>
               <a
-                href="#features"
+                href="#how-it-works"
                 className="rounded-full border border-white/30 px-6 py-3 text-center font-semibold text-white hover:bg-white/10"
               >
-                Explore features
+                See how it works
               </a>
             </div>
             <p className="mt-10 text-sm text-ice-200">
@@ -178,10 +186,22 @@ export default function Home() {
             </p>
             <p>
               Skiers answer a few questions about their experience, the terrain
-              they are comfortable on, and what they want to improve. RunReady
-              will use AI to build a personalized progression plan that shows
-              exactly what to work on next.
+              they are comfortable on, and what they want to improve. RunReady&apos;s
+              AI reads your answers like a coach would, figures out what&apos;s
+              really holding you back, and builds a personalized progression
+              plan that shows exactly what to work on next.
             </p>
+            <div className="rounded-2xl bg-ice-50 p-6">
+              <p className="text-base font-semibold text-navy-900">RunReady is built for you if:</p>
+              <ul className="mt-3 space-y-2 text-base">
+                {audience.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-1 text-ice-500" aria-hidden="true">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -251,6 +271,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing */}
+      <section id="pricing" className="scroll-mt-8 bg-ice-50 py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold tracking-widest text-ice-500 uppercase">Pricing</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+              A coach&apos;s game plan for less than a lift-line snack
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              One private lesson costs $150 or more. RunReady gives you a personalized plan for every ski
+              day, all season long.
+            </p>
+          </div>
+          <div className="mx-auto mt-14 grid max-w-4xl gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-ice-200 bg-white p-8">
+              <h3 className="text-xl font-semibold text-navy-900">Free</h3>
+              <p className="mt-2 text-4xl font-bold text-navy-900">$0</p>
+              <ul className="mt-6 space-y-3 text-slate-600">
+                <li>✓ Your first AI progression plan</li>
+                <li>✓ Skill assessment and what&apos;s holding you back</li>
+                <li>✓ Session-by-session drills</li>
+              </ul>
+              <Link
+                href="/auth/sign-up"
+                className="mt-8 block rounded-full border border-navy-900 px-6 py-3 text-center font-semibold text-navy-900 hover:bg-ice-50"
+              >
+                Start free
+              </Link>
+            </div>
+            <div className="relative rounded-2xl bg-navy-900 p-8 text-white shadow-xl">
+              <span className="absolute -top-3 right-6 rounded-full bg-ice-400 px-3 py-1 text-xs font-bold text-navy-950">
+                MOST POPULAR
+              </span>
+              <h3 className="text-xl font-semibold">RunReady Pro</h3>
+              <p className="mt-2 text-4xl font-bold">
+                {formatPrice()}
+                <span className="text-lg font-medium text-ice-200">/month</span>
+              </p>
+              <ul className="mt-6 space-y-3 text-ice-100">
+                <li>✓ Unlimited AI progression plans</li>
+                <li>✓ A fresh plan after every ski day</li>
+                <li>✓ Plans for every goal: steeps, bumps, trees</li>
+                <li>✓ Cancel anytime</li>
+              </ul>
+              <Link
+                href="/auth/sign-up"
+                className="mt-8 block rounded-full bg-ice-400 px-6 py-3 text-center font-semibold text-navy-950 hover:bg-ice-300"
+              >
+                Get started
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Coming soon */}
       <section id="coming-soon" className="scroll-mt-8 bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -262,8 +337,7 @@ export default function Home() {
               Fresh tracks ahead
             </h2>
             <p className="mt-4 text-lg text-slate-600">
-              RunReady is in early development. Here is what we are building
-              next.
+              AI plans and accounts are live. Here&apos;s what we&apos;re building next.
             </p>
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

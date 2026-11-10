@@ -10,12 +10,15 @@
     "users": "node --env-file=.env.local scripts/list-users.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "1.7.0",
     "@neondatabase/auth": "0.7.0-beta",
     "@neondatabase/serverless": "1.2.0",
     "next": "16.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "server-only": "0.0.1"
+    "server-only": "0.0.1",
+    "stripe": "23.1.0",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
