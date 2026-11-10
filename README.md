@@ -11,7 +11,7 @@ Set these in Vercel → Project → Settings → Environment Variables. Never co
 
 | Variable | Where it comes from |
 |---|---|
-| `NEON_AUTH_BASE_URL` | Added by the Vercel–Neon integration when Neon Auth is enabled |
+| `VITE_NEON_AUTH_URL` (or `NEON_AUTH_BASE_URL`) | Neon Auth URL, added by the Vercel–Neon integration when Neon Auth is enabled |
 | `NEON_AUTH_COOKIE_SECRET` | A random secret of 32+ characters that you generate (signs session cookies) |
 | `DATABASE_URL` | Added by the Vercel–Neon integration (used by `npm run users`) |
 
@@ -19,8 +19,10 @@ Pull them into a git-ignored `.env.local` file for local development:
 
 ```bash
 npx vercel link
-npx vercel env pull .env.local
+npx vercel env pull .env.local --environment=preview
 ```
+
+The integration adds its variables to Production and Preview, so pull from Preview.
 
 ## Run locally
 

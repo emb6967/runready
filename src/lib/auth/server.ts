@@ -14,11 +14,14 @@ let instance: NeonAuth | null = null;
 export function getAuth(): NeonAuth {
   if (instance) return instance;
 
-  const baseUrl = process.env.NEON_AUTH_BASE_URL;
+  // The Vercel–Neon integration provides the Auth URL as VITE_NEON_AUTH_URL;
+  // NEON_AUTH_BASE_URL is the name Neon's Next.js docs use. Accept either.
+  // (VITE_ variables are not exposed to the browser in Next.js.)
+  const baseUrl = process.env.NEON_AUTH_BASE_URL || process.env.VITE_NEON_AUTH_URL;
   const secret = process.env.NEON_AUTH_COOKIE_SECRET;
 
   const missing = [
-    !baseUrl && "NEON_AUTH_BASE_URL",
+    !baseUrl && "NEON_AUTH_BASE_URL (or VITE_NEON_AUTH_URL)",
     !secret && "NEON_AUTH_COOKIE_SECRET",
   ].filter(Boolean);
   if (missing.length > 0) {
