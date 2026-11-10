@@ -7,6 +7,9 @@ import { generatePlanAction, type PlanFormState } from "../actions";
 const input =
   "mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-navy-900 placeholder:text-slate-400 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 focus:outline-none";
 
+// Safari ignores padding on native selects, so draw our own arrow to match the text inputs.
+const select = `${input} appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2364748b'%3E%3Cpath d='M5.3 7.3a1 1 0 0 1 1.4 0L10 10.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 0-1.4Z'/%3E%3C/svg%3E")] bg-[length:1.25rem] bg-[position:right_0.75rem_center] bg-no-repeat pr-10`;
+
 function FieldError({ message }: { message?: string }) {
   return message ? <p className="mt-1 text-sm text-red-600">{message}</p> : null;
 }
@@ -36,7 +39,7 @@ export function PlanForm() {
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="block text-sm font-medium text-navy-900">
             How long have you been skiing?
-            <select name="experience" defaultValue={str("experience") ?? ""} className={input} required>
+            <select name="experience" defaultValue={str("experience") ?? ""} className={select} required>
               <option value="" disabled>
                 Choose one
               </option>
@@ -48,7 +51,7 @@ export function PlanForm() {
           </label>
           <label className="block text-sm font-medium text-navy-900">
             Days you ski per season
-            <select name="daysPerSeason" defaultValue={str("daysPerSeason") ?? ""} className={input} required>
+            <select name="daysPerSeason" defaultValue={str("daysPerSeason") ?? ""} className={select} required>
               <option value="" disabled>
                 Choose one
               </option>
@@ -136,7 +139,7 @@ export function PlanForm() {
         </label>
         <label className="block text-sm font-medium text-navy-900">
           How many ski days do you have for this plan?
-          <select name="sessions" defaultValue={str("sessions") ?? "4"} className={input}>
+          <select name="sessions" defaultValue={str("sessions") ?? "4"} className={select}>
             {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => (
               <option key={n} value={n}>
                 {n} {n === 1 ? "day" : "days"}
